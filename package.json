@@ -1,0 +1,36 @@
+{
+	"name": "gps-tracks-server",
+	"version": "1.0.0-alpha",
+	"description": "",
+	"author": "Jawan Kolanowski <kolanowj@hochschule-trier.de>",
+	"license": "MIT",
+	"config": {
+		"target": {
+			"folder": "dist/"
+		}
+	},
+	"devDependencies": {
+		"eslint": "^3.19.0",
+		"onchange": "^3.2.1",
+		"concurrently": "^3.4.0"
+	},
+	"dependencies": {
+		"express": "^4.15.2"
+	},
+	"scripts": {
+		"enable:globstar": "shopt -s globstar",
+		"create:target": "mkdir -p ${npm_package_config_target_folder}",
+
+		"init": "npm -s run create:target",
+		"clean": "rm -rf ${npm_package_config_target_folder}",
+		"start": "node ${npm_package_config_target_folder}/main.js &",
+
+		"lint:scripts": "eslint --max-warnings 1000 src/**/*.js",
+		"debug:scripts": "npm -s run lint:scripts && cp -R src/* ${npm_package_config_target_folder}",
+		"watch:scripts": "onchange 'src/**/*.js' -w -i -- npm -s run debug:scripts",
+
+		"debug": "npm -s run init && npm -s run debug:scripts",
+		"watch": "npm -s run init && concurrently --raw --kill-others 'npm -s run watch:scripts'",
+		"build": "npm -s run init && npm -s run debug"
+	}
+}

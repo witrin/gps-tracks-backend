@@ -1,0 +1,18 @@
+{
+	"configuration": {
+		"data": "./dist/data/",
+		"charset": "UTF-8",
+		"public": "./dist/public/",
+		"port": 8080
+	},
+	"routes": {
+		"/api/tracks": {
+			"method": "get",
+			"handler": "./handler/tracks"
+		},
+		"/api/tracks/:id": {
+			"method": "get",
+			"handler": "./handler/tracks"
+		}
+	}
+}
