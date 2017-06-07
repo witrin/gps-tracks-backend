@@ -1,5 +1,5 @@
 {
-	"configuration": {
+	"common": {
 		"data": "./dist/data/",
 		"charset": "UTF-8",
 		"public": "./dist/public/",
