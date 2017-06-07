@@ -65,7 +65,7 @@ class TracksHandler {
 				}
 			}
 			else {
-				throw Error(`Exptected data in ${this._configuration.data}`);
+				throw Error(`Expected data in ${this._configuration.data}`);
 			}
 		}).bind(this));
 	}
