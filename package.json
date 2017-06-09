@@ -15,7 +15,8 @@
 		"concurrently": "^3.4.0"
 	},
 	"dependencies": {
-		"express": "^4.15.2"
+		"express": "^4.15.2",
+		"chokidar": "^1.7.0"
 	},
 	"scripts": {
 		"enable:globstar": "shopt -s globstar",
