@@ -2,7 +2,10 @@
 	"name": "gps-tracks-server",
 	"version": "1.0.0-alpha",
 	"description": "",
-	"author": "Jawan Kolanowski <kolanowj@hochschule-trier.de>",
+	"author": "Christoph Braun <braunc@hochschule-trier.de>",
+	"contributors": [
+		"Jawan Kolanowski <kolanowj@hochschule-trier.de>"
+	],
 	"license": "MIT",
 	"config": {
 		"target": {
