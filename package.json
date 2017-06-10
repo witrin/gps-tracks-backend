@@ -27,11 +27,14 @@
 		"start": "node ${npm_package_config_target_folder}/main.js &",
 
 		"lint:scripts": "eslint --max-warnings 1000 src/**/*.js",
-		"debug:scripts": "npm -s run lint:scripts && cp -R src/* ${npm_package_config_target_folder}",
-		"watch:scripts": "onchange 'src/**/*.js' -w -i -- npm -s run debug:scripts",
+		"build:scripts": "npm -s run lint:scripts && cp -R src/* ${npm_package_config_target_folder}",
+		"watch:scripts": "onchange 'src/**/*.js' -w -i -- npm -s run build:scripts",
 
-		"debug": "npm -s run init && npm -s run debug:scripts",
+		"prebuild": "npm -s run init",
+		"prestart": "npm -s run build",
+
+		"lint": "npm -s run lint:scripts",
 		"watch": "npm -s run init && concurrently --raw --kill-others 'npm -s run watch:scripts'",
-		"build": "npm -s run init && npm -s run debug"
+		"build": "npm -s run build:scripts"
 	}
 }
