@@ -27,7 +27,7 @@
 
 		"init": "npm -s run create:target",
 		"clean": "rm -rf ${npm_package_config_target_folder} node_modules",
-		"start": "node ${npm_package_config_target_folder}/main.js &",
+		"start": "node ${npm_package_config_target_folder}/main.js",
 
 		"lint:scripts": "eslint --max-warnings 1000 src/**/*.js",
 		"build:scripts": "npm -s run lint:scripts && cp -R src/* ${npm_package_config_target_folder}",
