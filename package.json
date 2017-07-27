@@ -22,21 +22,18 @@
 		"chokidar": "^1.7.0"
 	},
 	"scripts": {
-		"enable:globstar": "shopt -s globstar",
-		"create:target": "mkdir -p ${npm_package_config_target_folder}",
-
-		"init": "npm -s run create:target",
+		"init": "mkdir -p ${npm_package_config_target_folder}",
 		"clean": "rm -rf ${npm_package_config_target_folder} node_modules",
 		"start": "node ${npm_package_config_target_folder}/main.js",
 
-		"lint:scripts": "eslint --max-warnings 1000 src/**/*.js",
+		"lint:scripts": "eslint 'src/**/*.js'",
 		"build:scripts": "npm -s run lint:scripts && cp -R src/* ${npm_package_config_target_folder}",
 		"watch:scripts": "onchange 'src/**/*.js' -w -i -- npm -s run build:scripts",
 
 		"prebuild": "npm -s run init",
 
 		"lint": "npm -s run lint:scripts",
-		"watch": "npm -s run init && concurrently --raw --kill-others 'npm -s run watch:scripts'",
+		"watch": "concurrently --raw --kill-others 'npm -s run watch:scripts'",
 		"build": "npm -s run build:scripts"
 	}
 }
