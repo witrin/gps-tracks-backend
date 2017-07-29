@@ -13,9 +13,9 @@
 		}
 	},
 	"devDependencies": {
-		"eslint": "^3.19.0",
+		"eslint": "^4.3.0",
 		"onchange": "^3.2.1",
-		"concurrently": "^3.4.0"
+		"concurrently": "^3.5.0"
 	},
 	"dependencies": {
 		"express": "^4.15.2",
@@ -24,16 +24,17 @@
 	"scripts": {
 		"init": "mkdir -p ${npm_package_config_target_folder}",
 		"clean": "rm -rf ${npm_package_config_target_folder} node_modules",
-		"start": "node ${npm_package_config_target_folder}/main.js",
 
 		"lint:scripts": "eslint 'src/**/*.js'",
-		"build:scripts": "npm -s run lint:scripts && cp -R src/* ${npm_package_config_target_folder}",
-		"watch:scripts": "onchange 'src/**/*.js' -w -i -- npm -s run build:scripts",
+		"build:scripts": "npm run lint:scripts && cp -R src/* ${npm_package_config_target_folder}",
+		"watch:scripts": "onchange 'src/**/*.js' -w -i -- npm run build:scripts",
+		"start:server": "node ${npm_package_config_target_folder}/main.js",
 
-		"prebuild": "npm -s run init",
+		"prebuild": "npm run init",
 
-		"lint": "npm -s run lint:scripts",
-		"watch": "concurrently --raw --kill-others 'npm -s run watch:scripts'",
-		"build": "npm -s run build:scripts"
+		"start": "npm run start:server",
+		"lint": "npm run lint:scripts",
+		"watch": "concurrently --raw --kill-others 'npm run watch:scripts'",
+		"build": "npm run build:scripts"
 	}
 }
