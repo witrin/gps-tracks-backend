@@ -29,4 +29,4 @@ for (let route in configuration.routes) {
 application.use("/", Express.static(configuration.common.public));
 
 // start web server on the given port
-application.listen(configuration.common.port);
+application.listen(configuration.common.port, configuration.common.interface);

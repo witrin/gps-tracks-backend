@@ -3,7 +3,8 @@
 		"data": "./dist/data/",
 		"charset": "UTF-8",
 		"public": "./dist/public/",
-		"port": 8080
+		"port": 8080,
+		"interface": "localhost"
 	},
 	"routes": {
 		"/api/tracks": {
