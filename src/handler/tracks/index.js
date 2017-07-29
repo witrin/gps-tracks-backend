@@ -6,9 +6,8 @@ const Chokidar = require("chokidar");
  * Handle HTTP requests for GPS track data
  */
 class TracksHandler {
-
 	/**
-	 * Construct the HTTP handler
+	 * Construct HTTP handler
 	 *
 	 * @param {Object} configuration Handler configuration
 	 */
@@ -25,9 +24,8 @@ class TracksHandler {
 		this._cacheTracks();
 		this._watchTracks();
 	}
-
 	/**
-	 * Process the HTTP request
+	 * Process HTTP request
 	 *
 	 * @param {Object} request HTTP request
 	 * @param {Object} response HTTP response
@@ -66,7 +64,6 @@ class TracksHandler {
 			response.end();
 		}
 	}
-
 	/**
 	 * Cache meta data of all GPS tracks
 	 */
@@ -85,7 +82,6 @@ class TracksHandler {
 			}
 		}).bind(this));
 	}
-
 	/**
 	 * Watch changes of all GPS tracks
 	 */
@@ -114,7 +110,6 @@ class TracksHandler {
 			}
 		}).bind(this));
 	}
-
 	/**
 	 * Unwatch all GPS tracks
 	 */
@@ -123,7 +118,6 @@ class TracksHandler {
 			this._watcher.unwatch(this._configuration.data);
 		}
 	}
-
 	/**
 	 * Cache meta data of a GPS track
 	 *
@@ -144,7 +138,6 @@ class TracksHandler {
 			throw Error(`Reading data from ${id} failed: ${error}`);
 		}).bind(this));
 	}
-
 	/**
 	 * Get all data from a GPS track
 	 *
